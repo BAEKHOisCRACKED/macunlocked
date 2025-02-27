@@ -13,7 +13,7 @@
             <div class="lock-icon" id="unlockBtn">🔒</div>
             <input type="password" id="passwordInput" placeholder="Enter password...">
         </div>
-        <div class="content" id="content">
+        <div class="content" id="content" style="display: none; opacity: 0;">
             <h1 class="title">MacUnlocked</h1>
             <div class="cards">
                 <div class="card" onclick="openPage('vpn')">VPNs</div>
@@ -24,5 +24,10 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        function openPage(page) {
+            alert("Opening " + page);
+        }
+    </script>
 </body>
 </html>
