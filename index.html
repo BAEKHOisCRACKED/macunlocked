@@ -24,7 +24,21 @@
           <div class="card" onclick="openPage('proxy')">Proxies</div>
           <div class="card" onclick="openPage('guides')">Guides</div>
           <div class="card" onclick="openPage('apps')">Apps</div>
+          <div class="card" id="settingsBtn">⚙ Settings</div>
         </div>
+      </div>
+      <div class="settings-panel" id="settingsPanel">
+        <h2>Settings</h2>
+        <label for="colorPicker">Matrix Color:</label>
+        <input type="color" id="colorPicker" value="#00ffcc" />
+        <label for="fontSelector">Font:</label>
+        <select id="fontSelector">
+          <option value="Courier New">Courier New</option>
+          <option value="Arial">Arial</option>
+          <option value="Verdana">Verdana</option>
+          <option value="Monospace">Monospace</option>
+        </select>
+        <button id="closeSettings">Close</button>
       </div>
     </div>
     <script src="script.js"></script>
