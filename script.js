@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const colorPicker = document.getElementById("colorPicker");
   const fontSelector = document.getElementById("fontSelector");
   const closeSettings = document.getElementById("closeSettings");
+  const feedback = document.getElementById("passwordFeedback");
 
-  // Set canvas to full screen
   matrixCanvas.width = window.innerWidth;
   matrixCanvas.height = window.innerHeight;
 
@@ -44,11 +44,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   unlockBtn.addEventListener("click", () => {
     if (passwordInput.value === "unlock") {
-      lockScreen.style.display = "none";
-      content.style.display = "block";
-      content.style.opacity = "1";
+      feedback.textContent = "Access Granted";
+      feedback.className = "password-feedback correct visible";
+
+      lockScreen.style.animation = "gentleFadeOut 1s forwards";
+      passwordInput.style.pointerEvents = "none";
+
+      setTimeout(() => {
+        lockScreen.style.display = "none";
+        content.style.display = "block";
+        content.style.animation = "gentleFadeIn 1s forwards";
+      }, 1000);
     } else {
-      alert("Incorrect password!");
+      feedback.textContent = "Access Denied";
+      feedback.className = "password-feedback incorrect visible";
+
+      unlockBtn.classList.add("shake-lock");
+      passwordInput.classList.add("shake-lock");
+
+      setTimeout(() => {
+        feedback.className = "password-feedback";
+        unlockBtn.classList.remove("shake-lock");
+        passwordInput.classList.remove("shake-lock");
+      }, 1000);
     }
   });
 
