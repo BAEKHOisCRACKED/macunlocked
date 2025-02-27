@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacUnlocked</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <canvas id="matrix"></canvas>
+        <div class="lock-screen">
+            <div class="lock-icon" id="unlockBtn">🔒</div>
+            <input type="password" id="passwordInput" placeholder="Enter password...">
+        </div>
+        <div class="content" id="content">
+            <h1 class="title">MacUnlocked</h1>
+            <div class="cards">
+                <div class="card" onclick="openPage('vpn')">VPNs</div>
+                <div class="card" onclick="openPage('proxy')">Proxies</div>
+                <div class="card" onclick="openPage('guides')">Guides</div>
+                <div class="card" onclick="openPage('apps')">Apps</div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
