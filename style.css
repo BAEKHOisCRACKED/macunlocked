@@ -52,6 +52,34 @@ body {
   color: var(--theme-color, #00ffcc);
   border: 1px solid var(--theme-color, #00ffcc);
   text-align: center;
+  transition: all 0.3s ease;
+}
+
+.password-feedback {
+  position: absolute;
+  bottom: -40px;
+  width: 100%;
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.password-feedback.visible {
+  opacity: 1;
+}
+
+.incorrect {
+  color: #ff4444;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+.correct {
+  color: #00ff88;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.shake-lock {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 .content {
@@ -61,7 +89,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  transition: opacity 1s ease-in-out;
 }
 
 .title {
@@ -122,5 +149,43 @@ body {
   }
   100% {
     transform: skewX(-5deg);
+  }
+}
+
+@keyframes gentleFadeOut {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+@keyframes gentleFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
+  }
+  40%,
+  60% {
+    transform: translateX(4px);
   }
 }
